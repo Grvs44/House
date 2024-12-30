@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="initial-scale=1,width=device-width"/>
+<title>Week</title>
+<script>
+const toMonth = d=>d.getFullYear()*12+d.getMonth()
+function onload(){
+const now = new Date()
+document.getElementById('w').innerText = Math.floor((now - new Date(2024,8,23))/604800000)%12 +1
+document.getElementById('m').innerText = (toMonth(now) - toMonth(new Date(2024,9,1)))%3 +1
+}
+</script>
+</head>
+<body onload="onload()" style="font-family:'Segoe UI',Arial">
+<h1>Week <span id="w"></span></h1>
+<h1>Month <span id="m"></span></h1>
+</body>
+</html>
