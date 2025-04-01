@@ -11,8 +11,12 @@
 <h1>Month <span id="m"></span></h1>
 <script type="module">
 import weeks from './weeks.json' with {type:'json'}
+const pad = n=>n<10?'0'+n:n
 const now = new Date()
-const str = new Date(now - (((now.getDay() + 6) % 7)*86400)).toISOString().split('T')[0]
+console.log(now)
+const monday = new Date(now - (((now.getDay() + 6) % 7)*86400000))
+const str = `${monday.getFullYear()}-${pad(monday.getMonth()+1)}-${pad(monday.getDate())}`
+console.log(str)
 let week = 'Unknown week'
 for (const group of weeks){
   const i = group.values.indexOf(str)
