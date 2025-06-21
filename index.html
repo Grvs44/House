@@ -8,25 +8,6 @@
 </head>
 <body style="font-family:'Segoe UI',Arial">
 <h1 id="w"></h1>
-<h1>Month <span id="m"></span></h1>
-<script type="module">
-import weeks from './weeks.json' with {type:'json'}
-const pad = n=>n<10?'0'+n:n
-const now = new Date()
-console.log(now)
-const monday = new Date(now - (((now.getDay() + 6) % 7)*86400000))
-const str = `${monday.getFullYear()}-${pad(monday.getMonth()+1)}-${pad(monday.getDate())}`
-console.log(str)
-let week = 'Unknown week'
-for (const group of weeks){
-  const i = group.values.indexOf(str)
-  if (i != -1){
-    week = group.name + ' week ' + (i+1)
-    break
-  }
-}
-document.getElementById('w').innerText = week
-document.getElementById('m').innerText = (now.getMonth() - 1) % 3 + 1
-</script>
+<script src="./script.js" type="module"></script>
 </body>
 </html>
