@@ -13,3 +13,4 @@ const getWeek=()=>{
   return 'Unknown week'
 }
 document.getElementById('w').innerText = getWeek()
+document.getElementById('s').innerText = 'Start ' + str
