@@ -7,6 +7,9 @@ document.body.onload = () => {
     now.getMonth() + 1,
     0
   ).getDate()
+  const s = document.getElementById('share')
+  if (navigator.canShare({ text: '' })) s.onclick = share
+  else s.remove()
 }
 
 document.getElementById('f').onsubmit = (e) => {
@@ -36,4 +39,14 @@ H pay water: £${round(hPayWater)}
 M pay E: £${round(eShare)}
 M pay R: £${round(rShare)}
 R pay E: £${round(eShare - rShare)}`
+}
+
+document.getElementById('copy').onclick = () => {
+  navigator.clipboard
+    .writeText(document.getElementById('results').innerText)
+    .then(() => alert('Copied'))
+}
+
+const share = () => {
+  navigator.share({ text: document.getElementById('results').innerText })
 }
