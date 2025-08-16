@@ -38,7 +38,7 @@ document.getElementById('f').onsubmit = (e) => {
 H pay water: £${round(hPayWater)}
 M pay E: £${round(eShare)}
 M pay R: £${round(rShare)}
-R pay E: £${round(eShare - rShare)}`
+E pay R: £${round(rShare - eShare)}`
 }
 
 document.getElementById('copy').onclick = () => {
