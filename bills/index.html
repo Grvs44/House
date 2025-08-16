@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="initial-scale=1,width=device-width"/>
+<link rel="icon" href="/favicon.png"/>
+<title>Bills</title>
+</head>
+<body style="font-family:'Segoe UI',Arial">
+<h1>Bills</h1>
+<noscript>JavaScript is required to use this form</noscript>
+<form id="f">
+<p><Label>Electricity monthly total:
+£<input type="number" name="elec" step="0.01" min="0" required value="55.2"/></Label></p>
+<p><Label>Gas monthly total:
+£<input type="number" name="gas" step="0.01" min="0" required value="34.56"/></Label></p>
+<p><label>Water monthly total:
+£<input type="number" name="water" step="0.01" min="0" required value="65"/></label></p>
+<p><label>Broadband monthly total:
+£<input type="number" name="bb" step="0.01" min="0" required value="29"/></label></p>
+<p><label>Number of days H here this month:
+<input type="number" name="days" step="1" min="0" max="31" required/></label></p>
+<p><label>Number of days in this month:
+<input type="number" name="month" step="1" min="28" max="31" required/></label></p>
+<p><input type="submit" value="Calculate"/></p>
+</form>
+<div id="rbox" style="display:none">
+<h2>Results</h2>
+<button id="copy">Copy</button>
+<button id="share">Share</button>
+<p id="results"></p>
+</div>
+<script src="./bills.js" type="module"></script>
+</body>
+</html>
