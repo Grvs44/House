@@ -45,10 +45,16 @@ M pay R: £${out(round(rShare))}
 R pay E: £${out(rPayE)} + £${out(hPayElec)} = £${out(rPayETotal)}`
 }
 
-document.getElementById('copy').onclick = () => {
+const copy = document.getElementById('copy')
+copy.onclick = () => {
   navigator.clipboard
     .writeText(document.getElementById('results').innerText)
-    .then(() => alert('Copied'))
+    .then(() => {
+      copy.innerText = 'Copied'
+      setTimeout(() => {
+        copy.innerText = 'Copy'
+      }, 2000)
+    })
 }
 
 const share = () => {
