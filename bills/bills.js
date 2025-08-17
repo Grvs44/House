@@ -42,7 +42,7 @@ H pay water: £${out(hPayWater)}
 H pay total: £${out(hPay)}
 M pay E: £${out(round(eShare))}
 M pay R: £${out(round(rShare))}
-R pay E: £${out(rPayE)} + £${out(hPayElec)} = £${rPayETotal}`
+R pay E: £${out(rPayE)} + £${out(hPayElec)} = £${out(rPayETotal)}`
 }
 
 document.getElementById('copy').onclick = () => {
