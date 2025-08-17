@@ -1,4 +1,5 @@
-const round = (x) => (Math.round(x * 100) / 100).toFixed(2)
+const round = (x) => Math.round(x * 100) / 100
+const out = (x) => x.toFixed(2)
 
 document.body.onload = () => {
   const now = new Date()
@@ -27,18 +28,21 @@ document.getElementById('f').onsubmit = (e) => {
   const water = Number(data.get('water'))
   const band = Number(data.get('bb'))
   const p = days / month
+  const hPay = round(((elec + water) * p) / 4)
   const hPayElec = round((elec * p) / 4)
-  const hPayWater = round((((elec + water) * p) / 4) * 100) / 100 - hPayElec
+  const hPayWater = hPay - hPayElec
   const eShare = (elec + gas - hPayElec) / 3
   const rShare = (water + band - hPayWater) / 3
+  const rPayE = round(eShare - rShare)
+  const rPayETotal = rPayE + hPayElec
   document.getElementById('rbox').style.display = 'unset'
-  document.getElementById(
-    'results'
-  ).innerText = `H pay electricity: £${hPayElec}
-H pay water: £${round(hPayWater)}
-M pay E: £${round(eShare)}
-M pay R: £${round(rShare)}
-E pay R: £${round(rShare - eShare)}`
+  document.getElementById('results').innerText = `Days H here: ${days}/${month}
+H pay electricity: £${out(hPayElec)}
+H pay water: £${out(hPayWater)}
+H pay total: £${out(hPay)}
+M pay E: £${out(round(eShare))}
+M pay R: £${out(round(rShare))}
+R pay E: £${out(rPayE)} + £${out(hPayElec)} = £${rPayETotal}`
 }
 
 document.getElementById('copy').onclick = () => {
